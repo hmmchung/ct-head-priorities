@@ -1,0 +1,302 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<meta charset="utf-8">
+<title>What Radiologists Want Benchmarked on CT Head</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,500;8..60,600&family=Source+Sans+3:wght@400;500;600&display=swap">
+<style>
+/* Layout: a committee results page on a dark reading-room ground. Serif headline, one control row, ranked list with stacked bars, then comparison, respondents and methods. Single dark theme by design. */
+:root{
+  color-scheme:dark;
+  --bg:#101316; --surface:#161a1e; --raise:#1c2126; --ink:#e8ebee; --ink-2:#a6afb8; --ink-3:#77818b;
+  --rule:#272d33; --accent:#8fbcf0;
+  --t-high:#b7d3f6; --t-med:#5598e7; --t-low:#1c5cab;
+  --s1:#3987e5; --s2:#d95926;
+  --tip-bg:#e8ebee; --tip-fg:#101316;
+  --f-display:"Source Serif 4",Georgia,"Times New Roman",serif;
+  --f-body:"Source Sans 3",system-ui,-apple-system,"Segoe UI",sans-serif;
+}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:16px;line-height:1.5}
+.wrap{max-width:1040px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:44px 72px;display:flex;flex-direction:column;gap:48px}
+h1,h2{font-family:var(--f-display);font-weight:600;text-wrap:balance;margin:0}
+h1{font-size:clamp(34px,6vw,52px);line-height:1.05;letter-spacing:-.01em}
+h2{font-size:24px;font-weight:500}
+p{margin:0;max-width:66ch}
+.num{font-variant-numeric:tabular-nums}
+header{display:flex;flex-direction:column;gap:12px;padding-bottom:28px;border-bottom:1px solid var(--rule)}
+.org{font-size:15px;font-weight:600;color:var(--accent)}
+.lede{color:var(--ink-2);font-size:17px}
+.figs{display:flex;flex-wrap:wrap;gap:16px 48px;margin:10px 0 2px;padding:0}
+.figs div{display:flex;flex-direction:column-reverse;gap:2px}
+.figs dd{margin:0;font-family:var(--f-display);font-size:clamp(38px,6vw,52px);font-weight:500;line-height:1;color:var(--ink);font-variant-numeric:lining-nums tabular-nums}
+.figs dt{font-size:14px;color:var(--ink-3)}
+.purpose{font-size:15px;color:var(--ink-3)}
+section{display:flex;flex-direction:column;gap:14px}
+.sec-head{display:flex;flex-direction:column;gap:6px}
+.sec-head p{color:var(--ink-2)}
+.controls{display:flex;flex-wrap:wrap;gap:12px 16px;align-items:flex-end}
+.ctl{display:flex;flex-direction:column;gap:4px;min-width:0}
+.ctl label{font-size:13px;color:var(--ink-3)}
+select,input[type=search]{font:inherit;font-size:15px;color:var(--ink);background:var(--surface);border:1px solid var(--rule);border-radius:6px;padding:7px 10px;min-width:0}
+input[type=search]{width:210px;max-width:100%}
+select:focus-visible,input:focus-visible,.bar:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.legend{display:flex;gap:16px;margin-left:auto;font-size:14px;color:var(--ink-2);flex-wrap:wrap}
+.legend i{display:inline-block;width:11px;height:11px;border-radius:2px;margin-right:6px;vertical-align:-1px}
+.status{font-size:14px;color:var(--ink-3)}
+.ctl.search{margin-left:auto}
+.subbar{display:flex;flex-wrap:wrap;gap:10px 20px;align-items:center}
+.subbar .status{flex:1 1 240px;min-width:0}
+.subbar .legend{margin-left:0}
+@media (max-width:700px){.ctl.search{margin-left:0;width:100%}.ctl.search input{width:100%}}
+.list{border-top:1px solid var(--rule)}
+.colhead,.row{display:grid;grid-template-columns:2.4rem minmax(0,1.25fr) 4.8rem 3.6rem minmax(140px,1.6fr) 3.4rem 2.2rem;gap:12px;align-items:center;padding:7px 4px}
+.colhead{font-size:13px;color:var(--ink-3);padding-block:10px}
+.colhead .r{text-align:right}
+.tierband{padding:22px 4px 8px;display:flex;flex-wrap:wrap;gap:4px 10px;align-items:baseline;border-bottom:1px solid var(--rule)}
+.tierband b{font-family:var(--f-display);font-size:19px;font-weight:500}
+.tierband span{font-size:14px;color:var(--ink-3)}
+.row{border-bottom:1px solid var(--rule)}
+.row:hover{background:var(--raise)}
+.rank{font-size:14px;color:var(--ink-3);font-variant-numeric:tabular-nums}
+.name{min-width:0;overflow-wrap:anywhere;font:inherit;color:inherit;background:none;border:0;padding:0;text-align:left;cursor:pointer;display:flex;gap:8px;align-items:baseline}
+.name::before{content:"";flex:none;width:6px;height:6px;border-right:1.5px solid var(--ink-3);border-bottom:1.5px solid var(--ink-3);transform:translateY(-2px) rotate(-45deg);transition:transform .15s}
+.name[aria-expanded="true"]::before{transform:translateY(-3px) rotate(45deg)}
+.name:hover{color:var(--accent)}
+.name:focus-visible,.ghost:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.row{cursor:pointer}
+.attrs{padding:12px 4px 16px calc(2.4rem + 26px);border-bottom:1px solid var(--rule);background:var(--surface);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:12px 28px}
+.attrs h4{margin:0 0 6px;font-size:13px;font-weight:600;color:var(--ink-2)}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{font-size:13px;padding:2px 9px;border-radius:999px;border:1px solid var(--rule);color:var(--ink);background:var(--raise)}
+.chip.help{background:transparent;color:var(--ink-2);border-style:dashed}
+.attrs .syn{grid-column:1/-1}
+.attrs .syn p{max-width:none}
+.attrs .syn p,.attrs .cat{margin:0;font-size:14px;color:var(--ink-2);line-height:1.55}
+.attrs .none{font-size:13px;color:var(--ink-3)}
+.ghost{font:inherit;font-size:14px;color:var(--accent);background:none;border:1px solid var(--rule);border-radius:6px;padding:7px 12px;cursor:pointer}
+.ghost:hover{background:var(--surface)}
+.tier{font-size:14px;color:var(--ink-2);display:flex;align-items:center;gap:6px}
+.tier::before{content:"";width:9px;height:9px;border-radius:2px;flex:none}
+.tier.H::before{background:var(--t-high)} .tier.M::before{background:var(--t-med)} .tier.L::before{background:var(--t-low)}
+.bar{position:relative;display:flex;height:14px;border-radius:3px}
+.bar span{height:100%;border-right:2px solid var(--bg)}
+.bar span:first-child{border-radius:3px 0 0 3px}
+.bar span:last-child{border-right:0;border-radius:0 3px 3px 0}
+.bar span:only-child{border-radius:3px}
+.row:hover .bar span{border-right-color:var(--raise)}
+.bar .h{background:var(--t-high)} .bar .m{background:var(--t-med)} .bar .l{background:var(--t-low)}
+.bar::after{content:"";position:absolute;left:50%;top:-4px;bottom:-4px;border-left:1px dashed var(--ink-3);pointer-events:none}
+.pct{text-align:right;font-size:15px;font-variant-numeric:tabular-nums}
+.med{text-align:center;font-size:15px;font-variant-numeric:tabular-nums}
+.n{white-space:nowrap;text-align:right;font-size:13px;color:var(--ink-3);font-variant-numeric:tabular-nums}
+.empty{padding:28px 4px;color:var(--ink-2)}
+.tip{position:fixed;z-index:10;pointer-events:none;background:var(--tip-bg);color:var(--tip-fg);font-size:14px;line-height:1.45;padding:9px 11px;border-radius:5px;max-width:280px}
+.tip b{display:block;font-weight:600;margin-bottom:2px}
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:28px 40px}
+.panel{display:flex;flex-direction:column;gap:10px;min-width:0}
+.panel h3{margin:0;font-size:16px;font-weight:600;padding-bottom:6px;border-bottom:1px solid var(--rule)}
+.hbars{display:flex;flex-direction:column;gap:7px}
+.hb{display:grid;grid-template-columns:minmax(0,1fr) minmax(60px,1.1fr) 2rem;gap:10px;align-items:center;font-size:14px}
+.hb .lab{color:var(--ink-2);overflow-wrap:anywhere}
+.hb .track{height:8px;background:var(--raise);border-radius:2px;overflow:hidden}
+.hb .fill{height:100%;background:var(--s1);border-radius:0 2px 2px 0}
+.hb .v{text-align:right;font-variant-numeric:tabular-nums}
+.note{font-size:13px;color:var(--ink-3)}
+.dbwrap{display:flex;flex-direction:column;gap:10px}
+.db{display:flex;flex-direction:column}
+.dbrow{display:grid;grid-template-columns:minmax(0,1fr) minmax(160px,1.5fr) 3rem;gap:12px;align-items:center;padding:6px 0;font-size:15px;border-bottom:1px solid var(--rule)}
+.dbrow .lab{overflow-wrap:anywhere}
+.dbtrack{position:relative;height:18px}
+.dbtrack::before{content:"";position:absolute;left:0;right:0;top:50%;border-top:1px solid var(--rule)}
+.dbline{position:absolute;top:50%;height:2px;margin-top:-1px;background:var(--ink-3)}
+.dot{position:absolute;top:50%;width:10px;height:10px;margin:-5px 0 0 -5px;border-radius:50%;box-shadow:0 0 0 2px var(--bg)}
+.dot.a{background:var(--s1)} .dot.c{background:var(--s2)}
+.dbrow .d{text-align:right;font-variant-numeric:tabular-nums;color:var(--ink-2)}
+.dbaxis{display:grid;grid-template-columns:minmax(0,1fr) minmax(160px,1.5fr) 3rem;gap:12px;font-size:12px;color:var(--ink-3)}
+.dbaxis div:nth-child(2){display:flex;justify-content:space-between}
+.dbgroup{font-size:15px;font-weight:600;margin-top:16px;padding-bottom:6px;border-bottom:1px solid var(--rule)}
+.methods{font-size:15px;color:var(--ink-2);display:flex;flex-direction:column;gap:10px}
+footer{font-size:13px;color:var(--ink-3);border-top:1px solid var(--rule);padding-top:16px}
+@media (max-width:700px){
+  .colhead{display:none}
+  .row{grid-template-columns:2rem auto auto minmax(0,1fr);grid-template-areas:"rank name name tier" ". bar bar bar" ". pct med n";column-gap:14px;row-gap:6px;padding-block:10px}
+  .attrs{padding-left:calc(2rem + 14px)}
+  .rank{grid-area:rank}.name{grid-area:name}.tier{grid-area:tier;justify-self:end}.med{grid-area:med;text-align:left;font-size:13px;color:var(--ink-3)}.med::before{content:"median "}
+  .bar{grid-area:bar}.pct{grid-area:pct;text-align:left}.n{grid-area:n}
+  .pct::after{content:" rated high";font-size:13px;color:var(--ink-3)}
+  .n::before{content:"n = "}
+  .legend{margin-left:0}
+  .dbrow,.dbaxis{grid-template-columns:minmax(0,1fr) minmax(110px,1.2fr) 2.6rem}
+}
+@media (prefers-reduced-motion:no-preference){.bar span{transition:width .25s ease}}
+</style>
+
+<div class="wrap">
+  <header>
+    <div class="org">RSNA LLM Benchmarking Committee</div>
+    <h1>What Radiologists Want Benchmarked on CT Head</h1>
+    <p class="lede">This survey asked radiologists which CT head findings matter most when evaluating a foundation model for routine clinical use.</p>
+    <dl class="figs">
+      <div><dt>Radiologists</dt><dd>64</dd></div>
+      <div><dt>Countries</dt><dd>21</dd></div>
+      <div><dt>Findings</dt><dd>98</dd></div>
+    </dl>
+    <p class="purpose">These results are intended to guide the development of shared benchmarks.</p>
+  </header>
+
+  <section aria-labelledby="rank-h">
+    <div class="sec-head">
+      <h2 id="rank-h">Ranking</h2>
+      <p>A finding is High priority if more than half of raters put it in the high column, Low if more than half put it in the low column, and Medium otherwise. The median uses high = 1, medium = 2 and low = 3. Select a finding to see the attributes that should be reported with it. The dashed line in each bar is the 50% mark.</p>
+    </div>
+    <div class="controls">
+      <div class="ctl"><label for="sort">Order by</label>
+        <select id="sort">
+          <option value="tier">Priority</option>
+          <option value="name">A to Z</option>
+        </select></div>
+      <div class="ctl"><label for="grp">Radiologists</label><select id="grp"></select></div>
+      <div class="ctl search"><label for="q">Search</label><input id="q" type="search" placeholder="Finding or synonym" autocomplete="off"></div>
+    </div>
+    <div class="subbar">
+      <div class="status" id="status" aria-live="polite"></div>
+      <div class="legend" aria-hidden="true"><span><i style="background:var(--t-high)"></i>High</span><span><i style="background:var(--t-med)"></i>Medium</span><span><i style="background:var(--t-low)"></i>Low</span></div>
+      <button type="button" id="expandAll" class="ghost">Show all attributes</button>
+    </div>
+    <div class="list" id="list" role="table" aria-label="CT head findings ranked by benchmarking priority"></div>
+  </section>
+
+  <section aria-labelledby="who-h">
+    <div class="sec-head">
+      <h2 id="who-h">Respondents</h2>
+      <p>62 of the 64 respondents answered the background questions.</p>
+    </div>
+    <div class="grid2" id="who"></div>
+  </section>
+
+  <footer>RSNA LLM Benchmarking Committee · CT head prioritization survey, 2026</footer>
+</div>
+<div class="tip" id="tip" hidden></div>
+
+<script>
+const DATA = {"F":["Intracranial hemorrhage","Intraparenchymal hemorrhage","Intraventricular hemorrhage","Subarachnoid hemorrhage","Subdural hemorrhage/hematoma","Epidural hemorrhage/hematoma","Cerebral contusion","Diffuse axonal injury with microhemorrhages","Hemorrhagic transformation of infarct","Subdural hygroma","Extra-axial low density collection","Loss of gray\u2013white differentiation","Acute territorial infarct","Chronic infarct","Lacunar infarct","Watershed infarct","Hyperdense artery sign","Early ischemic change","Mass effect","Sulcal effacement","Cerebral edema (diffuse)","Vasogenic edema","Cytotoxic edema","Midline shift","Subfalcine herniation","Uncal (transtentorial descending) herniation","Upward transtentorial herniation","Tonsillar herniation","Hydrocephalus","Ventriculomegaly","Trapped ventricle","Basal cistern effacement","Brain atrophy","Disproportionate ventriculomegaly (possible NPH pattern)","Chronic microvascular ischemic change","Encephalomalacia","Periventricular leukomalacia","Intraparenchymal mass","Dural-based mass","IAC/CPA mass","Sellar/suprasellar mass","Intraventricular mass","Extra-axial mass","Calcified dural-based mass","Calcified intracranial mass (intracranial, compartment unspecified)","CSF-density extra-axial cystic lesion","Fat-density intracranial lesion","Brain abscess","Subdural empyema","Epidural abscess (cranial)","Encephalitis","Meningitis","Sinus mucosal thickening","Sinus opacification","Sinus air-fluid level","Chronic sinusitis with osteitis","Mastoid effusion","Erosive mastoiditis (coalescent)","Lens replacement","Retrobulbar hemorrhage","Orbital emphysema","Proptosis","Orbital wall fracture","Globe rupture","Intraocular foreign body","Calvarial fracture","Depressed skull fracture","Skull base fracture","Temporal bone fracture","Zygomatic arch fracture","Midface fracture (Le Fort pattern)","Nasal bone fracture","Osteolytic calvarial lesion","Osteosclerotic calvarial lesion","Pneumocephalus","Subcutaneous emphysema","Scalp hematoma","Soft tissue swelling","Intracranial atherosclerosis","Dural venous sinus thrombosis","Intracranial vascular malformation","Physiologic intracranial calcifications","Pathologic calcifications","External ventricular drain","Ventriculoperitoneal shunt (VP shunt)","Intracranial pressure monitor/bolt","Deep brain stimulation leads","Aneurysm clip/coils/stent","Cochlear implant","Craniotomy changes","Craniectomy changes","Burr holes","Postoperative fluid/collection","Post-radiotherapy changes","Arachnoid granulation","Mega cisterna magna","Enlarged perivascular spaces","Porencephalic cyst"],"G":{"all":{"n":64,"c":[[61,2,0],[63,1,0],[58,5,1],[62,2,0],[59,4,0],[61,2,0],[47,16,0],[49,12,3],[46,15,3],[14,30,20],[13,36,15],[55,8,1],[62,1,1],[4,24,36],[19,30,15],[38,25,1],[56,7,1],[57,5,1],[46,16,1],[39,22,3],[56,7,1],[48,15,1],[50,12,0],[47,12,4],[48,14,2],[52,11,1],[50,13,1],[49,12,3],[42,20,2],[22,36,6],[32,28,4],[47,16,1],[4,20,40],[7,48,8],[2,16,46],[5,23,36],[9,20,35],[45,17,2],[15,43,5],[25,38,1],[27,36,1],[32,31,1],[18,39,7],[3,31,30],[12,36,16],[6,35,22],[5,30,29],[60,3,1],[56,8,0],[57,5,1],[46,17,1],[47,11,6],[2,11,51],[3,17,43],[4,25,35],[2,20,41],[4,18,42],[26,32,6],[1,6,57],[42,19,3],[28,31,4],[8,38,17],[28,31,4],[48,13,2],[33,24,7],[42,21,1],[43,18,3],[56,6,2],[41,23,0],[18,35,11],[41,22,1],[5,32,27],[21,36,6],[8,38,17],[27,29,7],[5,32,27],[4,29,31],[3,25,35],[4,19,41],[62,2,0],[27,31,6],[2,7,55],[7,45,11],[2,18,44],[4,25,35],[3,20,41],[1,23,40],[12,21,31],[3,17,44],[1,17,46],[2,21,41],[1,10,53],[6,44,14],[2,36,25],[1,2,61],[2,7,55],[1,13,50],[3,17,44]]},"A":{"n":43,"c":[[41,2,0],[42,1,0],[39,3,1],[42,1,0],[39,4,0],[41,2,0],[31,12,0],[31,9,3],[30,10,3],[10,19,14],[8,24,11],[36,6,1],[42,0,1],[1,17,25],[16,17,10],[25,17,1],[37,5,1],[40,2,1],[32,10,1],[22,18,3],[36,6,1],[32,10,1],[36,6,0],[30,10,3],[30,11,2],[32,10,1],[33,9,1],[31,9,3],[29,13,1],[15,23,5],[20,19,4],[30,12,1],[3,15,25],[3,34,6],[1,13,29],[1,16,26],[5,13,25],[31,10,2],[11,29,3],[20,22,1],[15,27,1],[22,20,1],[13,23,7],[2,19,22],[10,23,10],[5,21,17],[3,19,21],[40,2,1],[35,8,0],[37,5,1],[30,12,1],[28,9,6],[1,6,36],[2,10,31],[3,13,27],[1,10,32],[2,9,32],[16,21,6],[0,3,40],[24,17,2],[18,21,4],[5,26,12],[18,22,3],[32,10,1],[17,20,6],[26,16,1],[26,14,3],[37,4,2],[26,17,0],[10,25,8],[26,16,1],[3,19,21],[14,23,5],[7,24,12],[16,20,6],[2,19,22],[2,19,22],[3,14,26],[3,13,27],[41,2,0],[17,21,5],[1,4,38],[5,30,7],[1,9,33],[2,15,26],[1,12,30],[0,12,31],[9,9,25],[0,13,30],[0,12,31],[0,13,30],[0,8,35],[3,28,12],[2,22,19],[0,2,41],[0,5,38],[0,8,35],[0,10,33]]},"N":{"n":19,"c":[[19,0,0],[19,0,0],[17,2,0],[19,0,0],[19,0,0],[19,0,0],[15,4,0],[17,2,0],[14,5,0],[3,10,6],[3,12,4],[17,2,0],[18,1,0],[1,7,11],[1,13,5],[11,8,0],[17,2,0],[16,3,0],[13,6,0],[15,4,0],[18,1,0],[14,5,0],[13,6,0],[17,2,0],[16,3,0],[18,1,0],[16,3,0],[16,3,0],[11,7,1],[5,13,1],[10,9,0],[15,4,0],[0,5,14],[4,14,1],[0,2,17],[2,7,10],[3,7,9],[12,7,0],[4,13,2],[4,15,0],[10,9,0],[8,11,0],[4,15,0],[0,12,7],[1,12,6],[1,13,5],[1,10,8],[18,1,0],[19,0,0],[19,0,0],[14,5,0],[17,2,0],[0,5,14],[1,7,11],[0,11,8],[1,10,8],[1,9,9],[9,10,0],[0,3,16],[16,2,1],[10,9,0],[2,12,5],[10,8,1],[15,3,1],[14,4,1],[14,5,0],[15,4,0],[17,2,0],[14,5,0],[7,9,3],[14,5,0],[1,13,5],[5,13,1],[1,13,5],[9,9,1],[2,13,4],[1,10,8],[0,10,9],[0,6,13],[19,0,0],[9,9,1],[0,3,16],[1,14,4],[0,9,10],[1,10,8],[1,8,10],[0,11,8],[2,11,6],[2,4,13],[0,5,14],[1,8,10],[0,2,17],[2,16,1],[0,13,6],[0,0,19],[1,2,16],[0,4,15],[2,6,11]]}},"demo":{"n_demo":62,"practice":{"Academic medical center":43,"Hybrid academic community practice":8,"Private Practice":8,"Government / VA":3},"years":{"20 years or more":19,"0-3 years":11,"7-10 years":10,"4-6 years":10,"11-12 years":6,"13-15 years":3,"16-19 years":3},"ai":{"Moderate":26,"Minimal":23,"Extensive":10},"fellow":{"Neuroradiology":42,"Abdominal imaging":11,"Interventional radiology":4,"Musculoskeletal radiology":3,"Nuclear medicine or molecular imaging":2,"Cardiothoracic imaging":2,"Pediatric radiology":1,"Breast imaging":1},"country":{"USA":29,"Canada":5,"India":2,"Venezuela":2,"Australia":2,"Israel":2,"Brazil":2,"Greece":1,"Iran":1,"Singapore":1,"Sweden":1,"Spain":1,"Taiwan":1,"Italy":1,"Finland":1,"Germany":1,"Switzerland":1,"Croatia":1,"Malaysia":1,"United Kingdom":1,"South Africa":1},"fellow_none":7},"A":[{"cat":"Hemorrhage","syn":["intracranial hemorrhage","intracranial bleed","acute ICH","acute intracranial hemorrhage","intracranial hematoma"],"must":["laterality","location","compartment","acuity","mass effect","midline shift (mm)"],"help":["volume (mL)"]},{"cat":"Hemorrhage","syn":["intraparenchymal hemorrhage","intraparenchymal hematoma","lobar hemorrhage","deep hemorrhage (basal ganglia/thalamic)","cerebellar hemorrhage","brainstem hemorrhage"],"must":["laterality","location","acuity","mass effect","midline shift (mm)","size","intraventricular extension"],"help":["volume (mL)","contour","spot sign"]},{"cat":"Hemorrhage","syn":["intraventricular hemorrhage","blood in ventricles","ventricular hemorrhage"],"must":["ventricles involved","hydrocephalus present","acuity"],"help":["volume (mL)"]},{"cat":"Hemorrhage","syn":["subarachnoid hemorrhage","sulcal hemorrhage","convexity SAH","perimesencephalic SAH"],"must":["distribution","severity grade","hydrocephalus present","location"],"help":["Modified Fisher scale"]},{"cat":"Hemorrhage","syn":["subdural hemorrhage","subdural hematoma","crescentic extra-axial collection","acute SDH","chronic SDH"],"must":["laterality","location (convexity/falx/tentorial)","thickness (mm)","acuity","mass effect","midline shift (mm)"],"help":["swirl sign","hyperdense capsule sign"]},{"cat":"Hemorrhage","syn":["epidural hemorrhage","epidural hematoma","lentiform extra-axial collection"],"must":["laterality","location","thickness (mm)","acuity","mass effect","midline shift (mm)","associated skull fracture"],"help":["swirl sign"]},{"cat":"Hemorrhage","syn":["cortical contusion","hemorrhagic contusion"],"must":["laterality","location","mass effect"],"help":[]},{"cat":"Hemorrhage","syn":["DAI","shear injury","petechial hemorrhages"],"must":["location","hemorrhagic component"],"help":["number"]},{"cat":"Hemorrhage","syn":["hemorrhagic conversion","hemorrhagic infarction"],"must":["location","territory","pattern (HI/PH)","mass effect"],"help":["ECASS criteria"]},{"cat":"Hemorrhage","syn":["hygroma","CSF-density subdural collection"],"must":["laterality","location","thickness (mm)","mass effect"],"help":[]},{"cat":"Hemorrhage","syn":["extra-axial collection","extra-axial fluid collection","extra-axial effusion"],"must":["laterality","location","thickness (mm)","mass effect"],"help":[]},{"cat":"Ischemia/Stroke","syn":["loss of gray-white matter junction","loss of gray-white interface","insular ribbon effacement"],"must":["laterality","location","hemorrhagic component","mass effect"],"help":[]},{"cat":"Ischemia/Stroke","syn":["acute infarct","acute ischemic infarct","territorial infarction","large territory vascular infarct"],"must":["location","laterality","mass effect","hemorrhagic transformation"],"help":["ASPECTS"]},{"cat":"Ischemia/Stroke","syn":["old infarct","chronic ischemic change","encephalomalacia from prior infarct"],"must":["location","laterality"],"help":[]},{"cat":"Ischemia/Stroke","syn":["lacunar infarct","lacunes","small deep infarcts"],"must":["location","laterality"],"help":[]},{"cat":"Ischemia/Stroke","syn":["borderzone infarct","watershed ischemia"],"must":["location","laterality"],"help":[]},{"cat":"Ischemia/Stroke","syn":["hyperdense sign","dense artery"],"must":["vessel affected"],"help":[]},{"cat":"Ischemia/Stroke","syn":["early ischemic changes","early CT signs of infarct","sulcal effacement (focal)","hypodensity (early)"],"must":["location","laterality"],"help":["ASPECTS"]},{"cat":"Edema & Mass Effect","syn":["mass effect","local mass effect","regional mass effect"],"must":["ventricular involvement","sulci involvement","herniation","midline shift (mm)"],"help":[]},{"cat":"Edema & Mass Effect","syn":["sulcal effacement","loss of sulci"],"must":["location","laterality"],"help":[]},{"cat":"Edema & Mass Effect","syn":["diffuse cerebral edema","malignant cerebral edema","global edema"],"must":["gray-white loss","herniation"],"help":[]},{"cat":"Edema & Mass Effect","syn":["vasogenic edema","white-matter edema"],"must":["location","laterality","mass effect","associated lesion"],"help":[]},{"cat":"Edema & Mass Effect","syn":["cytotoxic edema","gray-matter edema"],"must":["location","laterality","mass effect","hemorrhagic transformation"],"help":["ASPECTS"]},{"cat":"Midline/Herniation","syn":["midline shift","MLS"],"must":["laterality","midline shift (mm)"],"help":[]},{"cat":"Midline/Herniation","syn":["midline herniation","cingulate herniation","subfalcine shift"],"must":["laterality"],"help":[]},{"cat":"Midline/Herniation","syn":["transtentorial herniation","uncal herniation","medial temporal herniation"],"must":["laterality"],"help":[]},{"cat":"Midline/Herniation","syn":["upward herniation","ascending transtentorial herniation"],"must":[],"help":[]},{"cat":"Midline/Herniation","syn":["cerebellar tonsillar herniation","low-lying tonsils (acute)"],"must":["displacement (mm)","spinal cord abnormality"],"help":[]},{"cat":"Ventricles/Cisterns/Sulci","syn":["hydrocephalus","enlarged ventricles due to CSF obstruction","communicating hydrocephalus","obstructive hydrocephalus"],"must":["ventricle affected","severity","transependymal edema","obstructive vs communicating","shunt present"],"help":[]},{"cat":"Ventricles/Cisterns/Sulci","syn":["ventriculomegaly","ventricular enlargement","increased ventricular size"],"must":["ventricle affected","transependymal edema","obstructive vs communicating"],"help":[]},{"cat":"Ventricles/Cisterns/Sulci","syn":["isolated ventricular enlargement","trapped lateral ventricle"],"must":["ventricle affected","laterality","transependymal edema"],"help":[]},{"cat":"Ventricles/Cisterns/Sulci","syn":["cisternal effacement","compressed basal cisterns"],"must":[],"help":[]},{"cat":"Ventricles/Cisterns/Sulci","syn":["cerebral atrophy","global volume loss","diffuse cortical atrophy"],"must":["pattern (global; frontal; temporal; parietal; occipital)"],"help":[]},{"cat":"Ventricles/Cisterns/Sulci","syn":["ventricles enlarged out of proportion to sulci","NPH pattern"],"must":[],"help":["callosal angle","Evans index"]},{"cat":"White Matter","syn":["white-matter hypodensity","leukoaraiosis","small-vessel ischemic changes","periventricular hypodensities"],"must":["severity grade","distribution"],"help":["Fazekas grade"]},{"cat":"White Matter","syn":["encephalomalacia","porencephalic change","gliosis with volume loss"],"must":["location","laterality"],"help":[]},{"cat":"White Matter","syn":["PVL","periventricular white-matter injury"],"must":["location","severity"],"help":[]},{"cat":"Mass/Space-Occupying Lesion","syn":["intra-axial mass","parenchymal mass","intraparenchymal mass lesion","brain mass (intra-axial)"],"must":["laterality","location","size (mm)","mass effect","midline shift (mm)","herniation","enhancement pattern","adjacent edema","specific features","perfusion","spectroscopy"],"help":["specific diagnosis","comparison with prior"]},{"cat":"Mass/Space-Occupying Lesion","syn":["dural-based mass","extra-axial mass","dural thickening mass-like","falcine/tentorial mass"],"must":["laterality","location","size (mm)","mass effect","enhancement pattern"],"help":[]},{"cat":"Mass/Space-Occupying Lesion","syn":["internal auditory canal mass","cerebellopontine angle mass","CPA mass","IAC mass"],"must":["location","laterality","size (mm)","IAC involvement","mass effect","enhancement pattern"],"help":[]},{"cat":"Mass/Space-Occupying Lesion","syn":["sellar mass","suprasellar mass","pituitary region mass"],"must":["location","size (mm)","enhancement pattern","chiasmal displacement","carotid involvement","cystic","calcification"],"help":[]},{"cat":"Mass/Space-Occupying Lesion","syn":["ventricular mass","intraventricular lesion"],"must":["laterality","location","size (mm)","mass effect","enhancement pattern","obstruction","parenchymal invasion"],"help":[]},{"cat":"Mass/Space-Occupying Lesion","syn":["extra-axial mass lesion","extra-axial lesion (non-specific)"],"must":["laterality","location","size (mm)","mass effect","enhancement pattern"],"help":[]},{"cat":"Mass/Space-Occupying Lesion","syn":["calcified dural-based mass","calcified extra-axial mass","calcified meningioma (pattern)"],"must":["laterality","location","size (mm)","mass effect"],"help":[]},{"cat":"Mass/Space-Occupying Lesion","syn":["calcified intracranial mass","calcified lesion"],"must":["laterality","location","size (mm)","mass effect"],"help":[]},{"cat":"Mass/Space-Occupying Lesion","syn":["CSF-density extra-axial cyst","arachnoid cyst (pattern)"],"must":["laterality","location","size (mm)","mass effect"],"help":[]},{"cat":"Mass/Space-Occupying Lesion","syn":["fat-density lesion","lipomatous lesion","intracranial lipoma","dermoid (pattern)","fat-containing lesion"],"must":["laterality","location","size (mm)","mass effect"],"help":[]},{"cat":"Infection/Inflammation","syn":["cerebral abscess","ring lesion with central low attenuation (CT surrogate)"],"must":["laterality","location","size (mm)","mass effect","midline shift (mm)","ventriculitis"],"help":[]},{"cat":"Infection/Inflammation","syn":["purulent subdural collection","empyema"],"must":["laterality","location","thickness (mm)","mass effect","midline shift (mm)"],"help":[]},{"cat":"Infection/Inflammation","syn":["epidural empyema","epidural collection (infected)"],"must":["laterality","location","thickness (mm)","mass effect","midline shift (mm)"],"help":[]},{"cat":"Infection/Inflammation","syn":["diffuse low attenuation compatible with encephalitis"],"must":["location","laterality"],"help":[]},{"cat":"Infection/Inflammation","syn":["sulcal effacement compatible with meningitis","CT correlate of meningitis"],"must":["location","laterality","hydrocephalus"],"help":[]},{"cat":"Paranasal Sinuses/Mastoids","syn":["mucosal thickening","sinus mucositis"],"must":["location","laterality"],"help":[]},{"cat":"Paranasal Sinuses/Mastoids","syn":["paranasal sinus opacification","complete opacification"],"must":["location","laterality"],"help":[]},{"cat":"Paranasal Sinuses/Mastoids","syn":["air-fluid level in sinus"],"must":["location","laterality"],"help":[]},{"cat":"Paranasal Sinuses/Mastoids","syn":["chronic rhinosinusitis","sinus wall thickening/sclerosis"],"must":["location","laterality"],"help":[]},{"cat":"Paranasal Sinuses/Mastoids","syn":["mastoid effusions","mastoid air cell opacification"],"must":["laterality"],"help":[]},{"cat":"Paranasal Sinuses/Mastoids","syn":["coalescent mastoiditis","erosive mastoiditis"],"must":["laterality","ossicular chain involvement"],"help":[]},{"cat":"Orbits/Globe","syn":["pseudophakia","intraocular lens","IOL present"],"must":["laterality"],"help":[]},{"cat":"Orbits/Globe","syn":["orbital hematoma","post-septal hematoma"],"must":["location","laterality","severity"],"help":[]},{"cat":"Orbits/Globe","syn":["intraorbital air","orbital air"],"must":["location","laterality","severity"],"help":[]},{"cat":"Orbits/Globe","syn":["exophthalmos","globe protrusion"],"must":[],"help":["protrusion (mm)"]},{"cat":"Orbits/Globe","syn":["orbital wall fracture","blowout fracture","floor fracture","medial wall fracture"],"must":["muscle entrapment","fat entrapment","intraocular air","hemosinus","infraorbital nerve involvement"],"help":[]},{"cat":"Orbits/Globe","syn":["flattened globe","loss of globe contour","intraocular air"],"must":["hemorrhage","air","calcification"],"help":[]},{"cat":"Orbits/Globe","syn":["metallic foreign body in globe","intraocular foreign material"],"must":["location","laterality","density","shape"],"help":[]},{"cat":"Skull/Facial Bones","syn":["skull fracture","calvarial fractures"],"must":["location","laterality","displaced","depressed","diastatic","open vs closed"],"help":[]},{"cat":"Skull/Facial Bones","syn":["depressed fracture","depressed calvarial fracture"],"must":["location","laterality","deviation (mm)"],"help":[]},{"cat":"Skull/Facial Bones","syn":["skull base fracture","basal skull fracture"],"must":["location","foraminal involvement","CSF leak","carotid canal involvement","otic capsule involvement"],"help":[]},{"cat":"Skull/Facial Bones","syn":["temporal bone fracture"],"must":["part (squamous; petrous; tympanic; mastoid; mandibular fossa)","otic capsule sparing vs violating","facial nerve canal involvement"],"help":["inward depression (squamous part)","fracture direction, longitudinal or transverse (tympanic/mastoid part)","ossicular chain involvement"]},{"cat":"Skull/Facial Bones","syn":["zygomatic fracture","zygomatic arch disruption"],"must":["deviation (mm)"],"help":[]},{"cat":"Skull/Facial Bones","syn":["midface fracture","Le Fort pattern"],"must":["deviation (mm)","bones involved"],"help":[]},{"cat":"Skull/Facial Bones","syn":["nasal fracture"],"must":["deviation (mm)"],"help":[]},{"cat":"Skull/Facial Bones","syn":["lytic calvarial lesion","calvarial lucency"],"must":["location","laterality","expansile"],"help":[]},{"cat":"Skull/Facial Bones","syn":["sclerotic calvarial lesion","calvarial sclerosis"],"must":["location","laterality","expansile"],"help":[]},{"cat":"Air/Soft Tissues","syn":["intracranial air","pneumatized cranial cavity","air under skull"],"must":["location","laterality"],"help":["sign of hypertension"]},{"cat":"Air/Soft Tissues","syn":["soft tissue emphysema","subgaleal air"],"must":["location","laterality"],"help":[]},{"cat":"Air/Soft Tissues","syn":["scalp hematoma","subgaleal hematoma"],"must":["location","laterality"],"help":[]},{"cat":"Air/Soft Tissues","syn":["soft tissue edema","scalp swelling"],"must":["location","laterality"],"help":[]},{"cat":"Vascular (non-ischemic)","syn":["intracranial atherosclerotic calcifications","carotid siphon calcifications"],"must":[],"help":[]},{"cat":"Vascular (non-ischemic)","syn":["dense sinus sign","hyperdense transverse/sigmoid sinus"],"must":["location","laterality","recanalization","extension to cortical veins","occlusive vs nonocclusive","venous infarct"],"help":[]},{"cat":"Vascular (non-ischemic)","syn":["vascular malformation","AVM (pattern)","serpiginous calcifications","nidus calcifications (pattern)"],"must":["nidus size","eloquent area","venous drainage","associated aneurysm","hemorrhage present"],"help":["Spetzler-Martin grade"]},{"cat":"Calcifications","syn":["choroid plexus calcifications","pineal calcification","basal ganglia calcifications","falx calcification"],"must":[],"help":[]},{"cat":"Calcifications","syn":["dystrophic calcifications","tumoral calcifications"],"must":["location","laterality"],"help":["distribution pattern","size (mm)"]},{"cat":"Devices","syn":["EVD","ventricular catheter","external ventricular drainage"],"must":["trajectory","laterality","location of the tip"],"help":["signs of fracture or discontinuity"]},{"cat":"Devices","syn":["VP shunt","ventricular shunt","shunt catheter"],"must":["trajectory","laterality","location of the tip"],"help":["signs of fracture or discontinuity"]},{"cat":"Devices","syn":["ICP monitor","Camino bolt"],"must":["location","laterality"],"help":[]},{"cat":"Devices","syn":["DBS","deep brain stimulator"],"must":["location of the tip"],"help":["signs of fracture or discontinuity"]},{"cat":"Devices","syn":["aneurysm hardware","intracranial stent","flow diverter (CT-visible)"],"must":["laterality","location (which vessel)","residual aneurysm","parent vessel patency (if CTA)"],"help":[]},{"cat":"Devices","syn":["cochlear implant device","temporal bone implant"],"must":[],"help":["signs of fracture or discontinuity"]},{"cat":"Post Treatment","syn":["post-craniotomy changes","craniotomy flap"],"must":["laterality","location"],"help":[]},{"cat":"Post Treatment","syn":["post-craniectomy changes","decompressive craniectomy"],"must":["laterality","location"],"help":[]},{"cat":"Post Treatment","syn":["burr hole","burr holes"],"must":["laterality","location"],"help":[]},{"cat":"Post Treatment","syn":["postoperative collection","pseudomeningocele","postoperative hematoma"],"must":["laterality","location","acuity","thickness (mm)","mass effect"],"help":[]},{"cat":"Post Treatment","syn":["radiation changes","post-radiation white matter change"],"must":["laterality","location","severity"],"help":[]},{"cat":"CSF Spaces/Variants","syn":["arachnoid granulations","benign calvarial defects"],"must":["location (which sinus)"],"help":[]},{"cat":"CSF Spaces/Variants","syn":["enlarged cisterna magna","posterior fossa CSF space variant"],"must":[],"help":["size (mm)"]},{"cat":"CSF Spaces/Variants","syn":["Virchow\u2013Robin spaces","dilated perivascular spaces"],"must":["location","severity"],"help":[]},{"cat":"CSF Spaces/Variants","syn":["porencephalic cavity","post-ischemic cystic change"],"must":["location"],"help":["size (mm)"]}]};
+const F = DATA.F, G = DATA.G;
+const GROUPS = [
+  ["all","All radiologists","all"],
+  ["A","Academic","A"],
+  ["N","Non-academic","N"],
+];
+const $ = id => document.getElementById(id);
+const TIERNAME = {H:"High",M:"Medium",L:"Low"};
+const pct = (a,b)=> b? a/b*100 : 0;
+const fmt = v => (Math.round(v*10)/10).toFixed(v>=99.95||v===0?0:1).replace(/\.0$/,"");
+
+function compute(key){
+  const g = G[key];
+  const out = F.map((name,i)=>{
+    const [h,m,l]=g.c[i];
+    const n=h+m+l;
+    const tier = h>n/2?"H":(l>n/2?"L":"M");
+    return {name,i,h,m,l,n,ph:pct(h,n),pm:pct(m,n),pl:pct(l,n),mean:n?(h+2*m+3*l)/n:0,med:median(h,m,l),tier};
+  });
+  return {rows:out,nResp:g.n};
+}
+function median(h,m,l){const n=h+m+l;if(!n)return 0;const v=k=>k<h?1:(k<h+m?2:3);return n%2?v((n-1)/2):(v(n/2-1)+v(n/2))/2;}
+const TO = {H:0,M:1,L:2};
+function rankRows(rows){
+  const s=[...rows].sort((a,b)=>TO[a.tier]-TO[b.tier]||b.ph-a.ph||a.mean-b.mean||a.name.localeCompare(b.name));
+  s.forEach((r,k)=>r.rank=k+1); return s;
+}
+
+const grpSel=$("grp");
+GROUPS.forEach(([k,label,key])=>{const o=document.createElement("option");o.value=k;o.textContent=`${label} (${G[key].n})`;grpSel.appendChild(o);});
+try{const s=localStorage.getItem("cthb-sort2"); if(s==="tier"||s==="name") $("sort").value=s;}catch(e){}
+
+const esc = s => s.replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+function rowHTML(r){
+  const segs=[["h",r.ph],["m",r.pm],["l",r.pl]].filter(s=>s[1]>0).map(([c,v])=>`<span class="${c}" style="width:${v}%"></span>`).join("");
+  const label=`${r.name}: High ${r.h}, Medium ${r.m}, Low ${r.l} of ${r.n}`;
+  return `<div class="row" role="row"><span class="rank" role="cell">${r.rank}</span><button type="button" class="name" role="cell" aria-expanded="${OPEN.has(r.i)}" aria-controls="at-${r.i}" data-i="${r.i}">${esc(r.name)}</button><span class="tier ${r.tier}" role="cell">${TIERNAME[r.tier]}</span><span class="med" role="cell">${r.med}</span><div class="bar" role="cell" tabindex="0" data-i="${r.i}" aria-label="${esc(label)}">${segs}</div><span class="pct" role="cell">${fmt(r.ph)}%</span><span class="n" role="cell">${r.n}</span></div>`;
+}
+function attrsHTML(r){
+  const a=DATA.A[r.i];
+  const chips=(xs,c)=>xs.length?`<div class="chips">${xs.map(x=>`<span class="chip ${c}">${esc(x)}</span>`).join("")}</div>`:`<p class="none">None listed</p>`;
+  return `<div class="attrs" id="at-${r.i}"${OPEN.has(r.i)?"":" hidden"}><div><h4>Must report</h4>${chips(a.must,"")}</div><div><h4>Helpful to report</h4>${chips(a.help,"help")}</div>${(()=>{const s=a.syn.filter(x=>x.toLowerCase()!==r.name.toLowerCase().trim());return `<div class="syn"><h4>Synonyms</h4>${s.length?`<p>${s.map(esc).join(" · ")}</p>`:`<p class="none">None listed</p>`}</div>`;})()}</div>`;
+}
+const OPEN=new Set();
+const TIERNOTE={H:"More than half chose High",M:"No majority for High or Low",L:"More than half chose Low"};
+let current=null;
+function render(){
+  const g=GROUPS.find(x=>x[0]===grpSel.value);
+  const sort=$("sort").value, q=$("q").value.trim().toLowerCase();
+  try{localStorage.setItem("cthb-sort2",sort);}catch(e){}
+  const {rows,nResp}=compute(g[2]);
+  const ranked=rankRows(rows); current=Object.fromEntries(ranked.map(r=>[r.i,r]));
+  const cnt={H:0,M:0,L:0}; ranked.forEach(r=>cnt[r.tier]++);
+  
+  let list=ranked;
+  if(sort==="high") list=[...ranked].sort((a,b)=>b.ph-a.ph||a.mean-b.mean);
+  if(sort==="mean") list=[...ranked].sort((a,b)=>a.mean-b.mean||b.ph-a.ph);
+  if(sort==="median") list=[...ranked].sort((a,b)=>a.med-b.med||a.mean-b.mean);
+  if(sort==="name") list=[...ranked].sort((a,b)=>a.name.localeCompare(b.name));
+  const shown=q?list.filter(r=>r.name.toLowerCase().includes(q)||DATA.A[r.i].syn.some(s=>s.toLowerCase().includes(q))):list;
+  $("status").textContent=`${nResp} radiologists · ${cnt.H} high, ${cnt.M} medium, ${cnt.L} low`+(g[0]==="N"?". Non-academic includes hybrid academic-community, private practice and government/VA radiologists. With a smaller group, a few votes can change a ranking.":"")+(q?` Showing ${shown.length} matching "${$("q").value.trim()}".`:"");
+  let html=`<div class="colhead" role="row"><span role="columnheader">Rank</span><span role="columnheader">Finding</span><span role="columnheader">Tier</span><span role="columnheader" style="text-align:center">Median</span><span role="columnheader">How raters split</span><span class="r" role="columnheader">% high</span><span class="r" role="columnheader">n</span></div>`;
+  if(!shown.length) html+=`<div class="empty">Nothing matches "${esc($("q").value.trim())}".</div>`;
+  if(sort==="tier"){
+    for(const t of ["H","M","L"]){
+      const sub=shown.filter(r=>r.tier===t); if(!sub.length) continue;
+      html+=`<div class="tierband"><b>${TIERNAME[t]} priority</b><span>${cnt[t]} findings</span></div>`+sub.map(r=>rowHTML(r)+attrsHTML(r)).join("");
+    }
+  } else html+=shown.map(r=>rowHTML(r)+attrsHTML(r)).join("");
+  $("list").innerHTML=html;
+}
+["grp","sort"].forEach(id=>$(id).addEventListener("change",render));
+$("q").addEventListener("input",render);
+
+// tooltip
+const tip=$("tip");
+function showTip(el,x,y){
+  const r=current[el.dataset.i]; if(!r) return;
+  tip.innerHTML=`<b>${esc(r.name)}</b><span class="num">High ${r.h} (${fmt(r.ph)}%)<br>Medium ${r.m} (${fmt(r.pm)}%)<br>Low ${r.l} (${fmt(r.pl)}%)<br>Median ${r.med} · mean ${r.mean.toFixed(2)}<br>${r.n} raters</span>`;
+  tip.hidden=false;
+  const w=tip.offsetWidth,h=tip.offsetHeight;
+  let left=x+14, top=y-h-12;
+  if(left+w>window.innerWidth-8) left=window.innerWidth-w-8;
+  if(top<8) top=y+18;
+  tip.style.left=left+"px"; tip.style.top=top+"px";
+}
+const list=$("list");
+list.addEventListener("mousemove",e=>{const b=e.target.closest(".bar"); if(b) showTip(b,e.clientX,e.clientY); else tip.hidden=true;});
+list.addEventListener("mouseleave",()=>tip.hidden=true);
+function toggle(i,force){const open=force??!OPEN.has(i);open?OPEN.add(i):OPEN.delete(i);const p=document.getElementById("at-"+i),b=list.querySelector(`.name[data-i="${i}"]`);if(p)p.hidden=!open;if(b)b.setAttribute("aria-expanded",open);}
+list.addEventListener("click",e=>{const row=e.target.closest(".row");if(!row)return;const b=row.querySelector(".name");toggle(+b.dataset.i);syncAll();});
+function syncAll(){$("expandAll").textContent=OPEN.size===F.length?"Hide all attributes":"Show all attributes";}
+$("expandAll").addEventListener("click",()=>{const all=OPEN.size!==F.length;F.forEach((_,i)=>toggle(i,all));syncAll();});
+list.addEventListener("focusin",e=>{const b=e.target.closest(".bar"); if(b){const rc=b.getBoundingClientRect(); showTip(b,rc.left+rc.width/2,rc.top);}});
+list.addEventListener("focusout",()=>tip.hidden=true);
+window.addEventListener("scroll",()=>{tip.hidden=true},{passive:true});
+
+
+// respondents
+(function(){
+  const D=DATA.demo;
+  const order=(obj,keys)=>keys.filter(k=>obj[k]).map(k=>[k,obj[k]]);
+  const top=(obj,n)=>{const e=Object.entries(obj).sort((a,b)=>b[1]-a[1]);const head=e.slice(0,n);const rest=e.slice(n).reduce((s,x)=>s+x[1],0);if(rest)head.push([`${e.length-n} other countries`,rest]);return head;};
+  const panels=[
+    ["Practice setting",order(D.practice,["Academic medical center","Hybrid academic community practice","Private Practice","Government / VA"]).map(([k,v])=>[k==="Private Practice"?"Private practice":k,v]),""],
+    ["Years in independent practice",order(D.years,["0-3 years","4-6 years","7-10 years","11-12 years","13-15 years","16-19 years","20 years or more"]),""],
+    ["Fellowship training",[...Object.entries(D.fellow).sort((a,b)=>b[1]-a[1]),["None reported",D.fellow_none]],"Some respondents listed more than one fellowship."],
+    ["Prior clinical experience with AI",order(D.ai,["Extensive","Moderate","Minimal"]),"3 did not answer."],
+    ["Country",top(D.country,6),"4 did not answer."],
+  ];
+  const max=62;
+  $("who").innerHTML=panels.map(([t,rows,note])=>`<div class="panel"><h3>${t}</h3><div class="hbars">${rows.map(([k,v])=>`<div class="hb"><span class="lab">${esc(k)}</span><span class="track"><span class="fill" style="display:block;width:${v/max*100}%"></span></span><span class="v">${v}</span></div>`).join("")}</div>${note?`<p class="note">${note}</p>`:""}</div>`).join("");
+})();
+
+render();
+</script>
+
+</body></html>
